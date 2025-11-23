@@ -10,7 +10,12 @@ class Initial(Operator):
         initials = ""
         for text in split_text:
             if text:
-                initials += text[0].upper() + ". "
+                for char in text:
+                    if char.isalnum():
+                        initials += char.upper() + ". "
+                        break
+                    else:
+                        initials += char
 
         initials = initials.strip()
         return initials
